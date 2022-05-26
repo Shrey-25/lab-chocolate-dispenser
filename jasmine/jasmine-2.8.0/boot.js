@@ -1,7 +1,4 @@
-
-
-(function() {
-
+(function () {
   /**
    * ## Require &amp; Instantiate
    *
@@ -38,13 +35,17 @@
    */
 
   var queryString = new jasmine.QueryString({
-    getWindowLocation: function() { return window.location; }
+    getWindowLocation: function () {
+      return window.location;
+    },
   });
 
   var filterSpecs = !!queryString.getParam("spec");
 
   var catchingExceptions = queryString.getParam("catch");
-  env.catchExceptions(typeof catchingExceptions === "undefined" ? true : catchingExceptions);
+  env.catchExceptions(
+    typeof catchingExceptions === "undefined" ? true : catchingExceptions
+  );
 
   var throwingExpectationFailures = queryString.getParam("throwFailures");
   env.throwOnExpectationFailure(throwingExpectationFailures);
@@ -63,15 +64,32 @@
    */
   var htmlReporter = new jasmine.HtmlReporter({
     env: env,
-    onRaiseExceptionsClick: function() { queryString.navigateWithNewParam("catch", !env.catchingExceptions()); },
-    onThrowExpectationsClick: function() { queryString.navigateWithNewParam("throwFailures", !env.throwingExpectationFailures()); },
-    onRandomClick: function() { queryString.navigateWithNewParam("random", !env.randomTests()); },
-    addToExistingQueryString: function(key, value) { return queryString.fullStringWithNewParam(key, value); },
-    getContainer: function() { return document.body; },
-    createElement: function() { return document.createElement.apply(document, arguments); },
-    createTextNode: function() { return document.createTextNode.apply(document, arguments); },
+    onRaiseExceptionsClick: function () {
+      queryString.navigateWithNewParam("catch", !env.catchingExceptions());
+    },
+    onThrowExpectationsClick: function () {
+      queryString.navigateWithNewParam(
+        "throwFailures",
+        !env.throwingExpectationFailures()
+      );
+    },
+    onRandomClick: function () {
+      queryString.navigateWithNewParam("random", !env.randomTests());
+    },
+    addToExistingQueryString: function (key, value) {
+      return queryString.fullStringWithNewParam(key, value);
+    },
+    getContainer: function () {
+      return document.body;
+    },
+    createElement: function () {
+      return document.createElement.apply(document, arguments);
+    },
+    createTextNode: function () {
+      return document.createTextNode.apply(document, arguments);
+    },
     timer: new jasmine.Timer(),
-    filterSpecs: filterSpecs
+    filterSpecs: filterSpecs,
   });
 
   /**
@@ -84,10 +102,12 @@
    * Filter which specs will be run by matching the start of the full name against the `spec` query param.
    */
   var specFilter = new jasmine.HtmlSpecFilter({
-    filterString: function() { return queryString.getParam("spec"); }
+    filterString: function () {
+      return queryString.getParam("spec");
+    },
   });
 
-  env.specFilter = function(spec) {
+  env.specFilter = function (spec) {
     return specFilter.matches(spec.getFullName());
   };
 
@@ -106,7 +126,7 @@
    */
   var currentWindowOnload = window.onload;
 
-  window.onload = function() {
+  window.onload = function () {
     if (currentWindowOnload) {
       currentWindowOnload();
     }
@@ -121,5 +141,4 @@
     for (var property in source) destination[property] = source[property];
     return destination;
   }
-
-}());
+})();
