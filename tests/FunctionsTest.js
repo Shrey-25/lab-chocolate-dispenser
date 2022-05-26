@@ -8,7 +8,7 @@ describe("Add chocolates of differenent color - addChocolates", function () {
     "red",
     "silver",
     "purple",
-    "silver"
+    "silver",
   ];
 
   it("Defines addChocolates", function () {
@@ -34,7 +34,7 @@ describe("Add chocolates of differenent color - addChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = "Number cannot be zero/negative";
@@ -53,7 +53,7 @@ describe("Add chocolates of differenent color - addChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = [
@@ -66,7 +66,7 @@ describe("Add chocolates of differenent color - addChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     addChocolates(candies, "red", 2);
@@ -114,7 +114,7 @@ describe("Remove chocolates from the top of the dispenser - removeChocolates", f
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = ["green", "blue"];
@@ -133,7 +133,7 @@ describe("Remove chocolates from the top of the dispenser - removeChocolates", f
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = "Insufficient chocolates in the dispenser";
@@ -152,7 +152,7 @@ describe("Remove chocolates from the top of the dispenser - removeChocolates", f
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = [
@@ -163,7 +163,7 @@ describe("Remove chocolates from the top of the dispenser - removeChocolates", f
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let actualResult = removeChocolates(candies, candies.length);
@@ -197,7 +197,7 @@ describe("Dispense chocolates - dispenseChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = ["silver", "purple", "silver"];
@@ -216,7 +216,7 @@ describe("Dispense chocolates - dispenseChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = "Insufficient chocolates in the dispenser";
@@ -235,7 +235,7 @@ describe("Dispense chocolates - dispenseChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = ["silver", "purple", "silver", "red", "red", "blue"];
@@ -253,7 +253,7 @@ describe("Dispense chocolates - dispenseChocolates", function () {
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = "Number cannot be zero/negative";
@@ -279,7 +279,7 @@ describe("Dispense chocolates of different color - dispenseChocolatesOfColor", f
       "red",
       "red",
       "red",
-      "red"
+      "red",
     ];
 
     let expectedResult = ["red", "red", "red", "red"];
@@ -298,7 +298,7 @@ describe("Dispense chocolates of different color - dispenseChocolatesOfColor", f
       "red",
       "silver",
       "purple",
-      "silver"
+      "silver",
     ];
 
     let expectedResult = "Insufficient chocolates in the dispenser";
@@ -331,7 +331,7 @@ describe("Dispense chocolates of different color - dispenseChocolatesOfColor", f
       "red",
       "red",
       "red",
-      "red"
+      "red",
     ];
 
     let expectedResult = "Number cannot be zero/negative";
@@ -360,7 +360,7 @@ describe("Display number of chocolates of each color - noOfChocolates", function
       "pink",
       "blue",
       "crimson",
-      "crimson"
+      "crimson",
     ];
 
     let expectedResult = [1, 1, 2, 3, 1, 2, 1];
@@ -520,7 +520,7 @@ describe("Sort chocolates based on count in each color - sortChocolateBasedOnCou
       "silver",
       "purple",
       "silver",
-      "crimson"
+      "crimson",
     ];
 
     let expectedResult = [
@@ -623,7 +623,7 @@ describe("Sort chocolates based on count in each color - sortChocolateBasedOnCou
       "pink",
       "pink",
       "pink",
-      "pink"
+      "pink",
     ];
 
     sortChocolateBasedOnCount(candies);
@@ -689,7 +689,7 @@ describe("Change the color of chocolates - changeChocolateColor", function () {
       "red",
       "red",
       "red",
-      "red"
+      "red",
     ];
 
     let expectedResult = "Number cannot be zero/negative";
@@ -699,8 +699,7 @@ describe("Change the color of chocolates - changeChocolateColor", function () {
     expect(actualResult).toEqual(expectedResult);
   });
   it("Return 'Can't replace the same chocolates'", function () {
-    let expectedResult =
-      "Can't replace the same chocolates";
+    let expectedResult = "Can't replace the same chocolates";
 
     let actualResult = changeChocolateColor(["blue"], 1, "blue", "blue");
 
@@ -716,7 +715,6 @@ describe("Change the color of chocolates - changeChocolateColorAllOfxCount", fun
   });
 
   it("Change the color of  green chocolates to blue and return the array", function () {
-
     let expectedResult = [3, ["blue", "red", "blue", "blue"]];
 
     let actualResult = changeChocolateColorAllOfxCount(
@@ -729,7 +727,6 @@ describe("Change the color of chocolates - changeChocolateColorAllOfxCount", fun
   });
 
   it("Return '[0,[]]' when called with empty chocolates array", function () {
-    
     let expectedResult = [0, []];
 
     let actualResult = changeChocolateColorAllOfxCount([], "green", "blue");
@@ -738,8 +735,6 @@ describe("Change the color of chocolates - changeChocolateColorAllOfxCount", fun
   });
 
   it("Return single array element when there is only one chocolate in the array", function () {
-    
-    
     let expectedResult = [1, ["blue"]];
 
     let actualResult = changeChocolateColorAllOfxCount(["red"], "red", "blue");
@@ -747,8 +742,7 @@ describe("Change the color of chocolates - changeChocolateColorAllOfxCount", fun
     expect(actualResult).toEqual(expectedResult);
   });
   it("Return 'Can't replace the same chocolates'", function () {
-    let expectedResult =
-      "Can't replace the same chocolates";
+    let expectedResult = "Can't replace the same chocolates";
 
     let actualResult = changeChocolateColorAllOfxCount(
       ["blue"],
